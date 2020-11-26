@@ -27,8 +27,8 @@ public class BaseClass {
 	 @AfterTest
 	 public void CloseBrowser() throws InterruptedException {
 		 
-		 Thread.sleep(1000);
-		 driver.quit();
+		Thread.sleep(1000);
+		driver.quit();
 		 
 	 }
 

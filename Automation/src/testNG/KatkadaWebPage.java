@@ -508,7 +508,190 @@ public class KatkadaWebPage extends BaseClass {
 			  amount.clear();
 				 
 		}
+		
+		@Test(priority = 11)
+		public void billpaymentdropdown() throws InterruptedException
+		{
+			WebElement bill = driver.findElement(By.linkText("BILL PAYMENTS"));
+			bill.click();
+			
+			Thread.sleep(1000);
+			WebElement landline = driver.findElement(By.xpath("//a[contains(text(),'LANDLINE')]"));
+			landline.click();
+		}
 	 
+		@Test(priority = 12)
+		public void LandlineBillPayment() throws InterruptedException 
+		{
+			String acttext = driver.findElement(By.xpath("//p[@id='recharge_form_heading']")).getText();
+			System.out.println(acttext);
+			String expecttext = "Landline Bill Payment";
+			Assert.assertEquals(acttext, expecttext);
+			
+			//Valid input for landlineBillPayment
+			WebElement operator = driver.findElement(By.id("operator_name"));
+			operator.click();
+			Select drop = new Select(driver.findElement(By.name("operator_name")));
+			drop.selectByVisibleText("Airtel");
+			
+			WebElement stdcode = driver.findElement(By.id("std_code"));
+			stdcode.sendKeys("004");
+			
+			WebElement landlineno = driver.findElement(By.id("account_no"));
+			landlineno.sendKeys("27432173");
+			
+			WebElement amount = driver.findElement(By.id("recharge_amount"));
+			amount.sendKeys("200");
+			
+			Thread.sleep(1000);
+			WebElement recharge = driver.findElement(By.cssSelector("#recharge_submit_button"));
+			recharge.sendKeys(Keys.ENTER);
+			
+			String acuttext = driver.findElement(By.xpath("//h3[contains(text(),'Recharge Amount Information')]")).getText();
+			System.out.println(acuttext);
+			String expettext = "Recharge Amount Information";
+			Assert.assertEquals(acuttext, expettext);
+		}
+		
+		@Test(priority = 13)
+		public void LandlineNegativeScenarios() throws InterruptedException {
+			
+			WebElement bill = driver.findElement(By.className("dropdown-toggle"));
+			bill.click();
+			
+			WebElement land = driver.findElement(By.linkText("LANDLINE"));
+			land.click();
+			
+		//Select operator has to empty, other field with valid input
+			
+			WebElement stdcode = driver.findElement(By.name("std_code"));
+			stdcode.sendKeys("044");
+			
+			WebElement landline =driver.findElement(By.name("account_no"));
+			landline.sendKeys("27432173");
+			
+			WebElement amount = driver.findElement(By.name("amount"));
+			amount.sendKeys("200");
+			
+			WebElement recharge = driver.findElement(By.id("recharge_submit_button"));
+			recharge.sendKeys(Keys.ENTER);
+			
+			String Alertmessage = driver.switchTo().alert().getText();
+			System.out.println(Alertmessage);
+			String Expectedmessage = "Select the operator name.";
+			Assert.assertEquals(Alertmessage, Expectedmessage);
+			
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();
+			
+			//clear input
+			
+			stdcode.clear();
+			
+			landline.clear();
+			
+			amount.clear();
+			
+		//invalid STDCODE, other field with valid input
+			
+			WebElement operator = driver.findElement(By.id("operator_name"));
+			operator.click();
+			Select drop = new Select(driver.findElement(By.name("operator_name")));
+			drop.selectByVisibleText("Airtel");
+			
+			stdcode.sendKeys("0");
+			
+			landline.sendKeys("27432173");
+			
+			amount.sendKeys("200");
+			
+			recharge.sendKeys(Keys.ENTER);
+			
+			String alertmsg = driver.switchTo().alert().getText();
+			System.out.println(alertmsg);
+			String expectedmsg = "Enter valid STD Code.";
+			Assert.assertEquals(alertmsg, expectedmsg);
+			
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();
+			
+			//clear the input
+			
+			operator.click();
+			drop.selectByVisibleText("-- Select Operator --");
+			
+			stdcode.clear();
+			
+			landline.clear();
+			
+			amount.clear();
+			
+		//invalid landline, other fields with valid input
+			
+			operator.click();
+			drop.selectByVisibleText("Airtel");
+			
+			stdcode.sendKeys("044");
+			
+			landline.sendKeys("0");
+			
+			amount.sendKeys("200");
+			
+			recharge.sendKeys(Keys.ENTER);
+			
+			String alrtmsg = driver.switchTo().alert().getText();
+			System.out.println(alrtmsg);
+			String expectmsg = "Enter Valid Landline Number.";
+			Assert.assertEquals(alrtmsg, expectmsg);
+			
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();
+			
+			//Clear the input
+			
+			operator.click();
+			drop.selectByVisibleText("-- Select Operator --");
+			
+			stdcode.clear();
+			
+			landline.clear();
+			
+			amount.clear();
+			
+		//invalid amount, other with valid input
+			
+			operator.click();
+			drop.selectByVisibleText("Airtel");
+			
+			stdcode.sendKeys("044");
+			
+			landline.sendKeys("27432173");
+			
+			amount.sendKeys("0");
+			
+			recharge.sendKeys(Keys.ENTER);
+			
+			String alertMessage = driver.switchTo().alert().getText();
+			System.out.println(alertMessage);
+			String expectedMessage = "Enter valid amount between 1 to 50000";
+			Assert.assertEquals(alertMessage, expectedMessage);
+			
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();
+			
+			//clear the input
+			
+			operator.click();
+			drop.selectByVisibleText("-- Select Operator --");
+			
+			stdcode.clear();
+			
+			landline.clear();
+			
+			amount.clear();
+			
+			
+		}
 }
 
 

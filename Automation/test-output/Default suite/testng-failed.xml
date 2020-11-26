@@ -6,18 +6,16 @@
       <class name="testNG.KatkadaWebPage">
         <methods>
           <include name="CloseBrowser"/>
-          <include name="rechargenowButton"/>
-          <include name="LaunchBrowse"/>
-          <include name="ForgetpasswordPopup"/>
-          <include name="PrepaidNegativeScenarios"/>
-          <include name="SignupPopup"/>
-          <include name="Signin"/>
-          <include name="Prepaid"/>
-          <include name="SignInButton"/>
           <include name="postpaidNegativeScenarios"/>
           <include name="browserplan"/>
+          <include name="rechargenowButton"/>
+          <include name="LaunchBrowse"/>
+          <include name="LandlineBillPayment"/>
           <include name="postpaid"/>
+          <include name="PrepaidNegativeScenarios"/>
+          <include name="billpaymentdropdown"/>
           <include name="prepaidValidInputs"/>
+          <include name="Prepaid"/>
         </methods>
       </class> <!-- testNG.KatkadaWebPage -->
     </classes>
