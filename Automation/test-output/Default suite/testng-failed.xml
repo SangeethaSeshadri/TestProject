@@ -3,21 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNG.KatkadaWebPage">
+      <class name="mobilepostpaid.MobilePostpaidModule">
         <methods>
-          <include name="CloseBrowser"/>
-          <include name="postpaidNegativeScenarios"/>
-          <include name="browserplan"/>
-          <include name="rechargenowButton"/>
-          <include name="LaunchBrowse"/>
-          <include name="LandlineBillPayment"/>
           <include name="postpaid"/>
-          <include name="PrepaidNegativeScenarios"/>
-          <include name="billpaymentdropdown"/>
-          <include name="prepaidValidInputs"/>
-          <include name="Prepaid"/>
+          <include name="CloseBrowser"/>
+          <include name="LaunchBrowse"/>
         </methods>
-      </class> <!-- testNG.KatkadaWebPage -->
+      </class> <!-- mobilepostpaid.MobilePostpaidModule -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
