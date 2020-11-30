@@ -1,7 +1,5 @@
 package testNG;
 
-import java.util.Scanner;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,16 +7,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import config.PropertiesFile;
+
 public class BaseClass {
 	
 	public WebDriver driver;
+	public static String browserName = null;
 	 
 	@BeforeTest
 	public void LaunchBrowse() 
 	{
-		System.out.println("Enter Browser Name");
-		Scanner sc = new Scanner(System.in);
-		String browserName = sc.next();
+		PropertiesFile.getProperties();
 		
 		
 		if(browserName.equals("chrome"))
@@ -38,7 +37,7 @@ public class BaseClass {
 			System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
 			driver = new EdgeDriver();
 		}
-		
+	
 		  //maxmize the browser window
           driver.manage().window().maximize();
 		
@@ -51,6 +50,7 @@ public class BaseClass {
 		 
 		Thread.sleep(2000);
 		driver.quit();
+		PropertiesFile.setProperties();
 		 
 	 }
 

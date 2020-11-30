@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pageObjects.SignInPageObjects;
+
 public class KatkadaWebPage extends BaseClass {
 	
 
@@ -18,7 +20,8 @@ public class KatkadaWebPage extends BaseClass {
 			Thread.sleep(2000);
 			
 			//click the SIGN IN button
-			driver.findElement(By.linkText("SIGN IN")).click();
+			
+			SignInPageObjects.signin(driver).click();
 			
 			}
 		
@@ -29,23 +32,17 @@ public class KatkadaWebPage extends BaseClass {
 			   Thread.sleep(2000);
 			   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			   
-			   WebElement signup = driver.findElement(By.xpath("//a[contains(text(),'Sign Up')]"));
-			   signup.click();
+			   SignInPageObjects.signinpopup(driver).click();
 			   
-			   WebElement name = driver.findElement(By.id("name"));
-			   name.sendKeys("Sangeetha");
+			   SignInPageObjects.name(driver).sendKeys("Sangeetha");
 			   
-			   WebElement mobileno = driver.findElement(By.id("phone"));
-			   mobileno.sendKeys("9445643127");
+			   SignInPageObjects.mobile(driver).sendKeys("9442513153");
 			   
-			   WebElement emailid = driver.findElement(By.id("email"));
-			   emailid.sendKeys("sangeethas120@gmail.com");
+			   SignInPageObjects.emailId(driver).sendKeys("sangeethas1200@gmail.com");
 			   
-			   WebElement pass = driver.findElement(By.id("password_signup"));
-			   pass.sendKeys("sangeetha");
+			   SignInPageObjects.password(driver).sendKeys("sangeetha");
 			   
-		       WebElement retypepass =driver.findElement(By.id("confirm-pass"));
-			   retypepass.sendKeys("sangeetha");
+		       SignInPageObjects.retypepass(driver).sendKeys("sangeetha");
 			   
 			   String actualtext= driver.findElement(By.xpath("//button[@id='sign_up_button']")).getText();
 			   System.out.println(actualtext);
