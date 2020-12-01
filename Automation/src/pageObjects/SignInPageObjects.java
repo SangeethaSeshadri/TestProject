@@ -1,30 +1,53 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class SignInPageObjects {
 	
-	public static WebElement signin(WebDriver driver) {
-		return driver.findElement(By.linkText("SIGN IN"));
-		}
-   public static WebElement signinpopup(WebDriver driver) {
-	   return driver.findElement(By.xpath("//a[contains(text(),'Sign Up')]"));
-	  }
-   public static WebElement name(WebDriver driver) {
-	   return driver.findElement(By.id("name"));
-   }
-   public static WebElement mobile(WebDriver driver) {
-	   return driver.findElement(By.id("phone"));
-   }
-   public static WebElement emailId(WebDriver driver) {
-	   return driver.findElement(By.id("email"));
-   }
-   public static WebElement password(WebDriver driver) {
-	   return driver.findElement(By.id("password_signup"));
-   }
-   public static WebElement retypepass(WebDriver driver) {
-	   return driver.findElement(By.id("confirm-pass"));
-   }
+	
+	@FindBy(linkText="SIGN IN")
+	public static WebElement signin;
+	
+	@FindBy(xpath="//a[contains(text(),'Sign Up')]")
+	public static WebElement signinpopup;
+	
+	@FindBy(id="name")
+	public static WebElement name;
+	
+	@FindBy(id="phone")
+	public static WebElement mobile;
+	
+	@FindBy(id="email")
+	public static WebElement emailId;
+	
+	@FindBy(id="password_signup")
+	public static WebElement password;
+	
+	@FindBy(id="confirm-pass")
+	public static WebElement retypepass;
+	
+	@FindBy(xpath="//a[contains(text(),'Forgot Password?')]")
+	public static WebElement forgetpass;
+	
+	@FindBy(id="email-form1")
+	public static WebElement emailid;
+	
+	@FindBy(linkText="Sign In")
+	public static WebElement signIn;
+	
+	@FindBy(id="email-form")
+	public static WebElement email;
+	
+	@FindBy(id="pass-form")
+	public static WebElement pass;
+
+	@FindBy(id="sign_in_button")
+	public static WebElement SignInbutton;
+	
+	
+	
+	
+	
+	
 }

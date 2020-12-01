@@ -2,32 +2,32 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-30T17:56:38 IST" name="Default suite" finished-at="2020-11-30T17:57:17 IST" duration-ms="38703">
+  <suite started-at="2020-12-01T13:17:57 IST" name="Default suite" finished-at="2020-12-01T13:18:33 IST" duration-ms="35402">
     <groups>
     </groups>
-    <test started-at="2020-11-30T17:56:38 IST" name="Default test" finished-at="2020-11-30T17:57:17 IST" duration-ms="38703">
+    <test started-at="2020-12-01T13:17:57 IST" name="Default test" finished-at="2020-12-01T13:18:33 IST" duration-ms="35402">
       <class name="testNG.KatkadaWebPage">
-        <test-method is-config="true" signature="LaunchBrowse()[pri:0, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-11-30T17:56:38 IST" name="LaunchBrowse" finished-at="2020-11-30T17:56:57 IST" duration-ms="19024" status="PASS">
+        <test-method is-config="true" signature="LaunchBrowse()[pri:0, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-12-01T13:17:57 IST" name="LaunchBrowse" finished-at="2020-12-01T13:18:19 IST" duration-ms="22222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LaunchBrowse -->
-        <test-method signature="Signin()[pri:1, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-11-30T17:56:57 IST" name="Signin" description="TestCasesID #T.C.1.1.002" finished-at="2020-11-30T17:56:59 IST" duration-ms="2136" status="PASS">
+        <test-method signature="Signin()[pri:1, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-12-01T13:18:19 IST" name="Signin" description="TestCasesID #T.C.1.1.002" finished-at="2020-12-01T13:18:22 IST" duration-ms="2213" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Signin -->
-        <test-method signature="SignupPopup()[pri:2, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-11-30T17:56:59 IST" name="SignupPopup" description="TestCasesID #T.C.1.1.002" finished-at="2020-11-30T17:57:02 IST" duration-ms="2822" status="PASS">
+        <test-method signature="SignupPopup()[pri:2, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-12-01T13:18:22 IST" name="SignupPopup" description="TestCasesID #T.C.1.1.002" finished-at="2020-12-01T13:18:25 IST" duration-ms="2839" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SignupPopup -->
-        <test-method signature="ForgetpasswordPopup()[pri:3, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-11-30T17:57:02 IST" name="ForgetpasswordPopup" description="TestCasesID #T.C.1.1.002" finished-at="2020-11-30T17:57:05 IST" duration-ms="2371" status="PASS">
+        <test-method signature="ForgetpasswordPopup()[pri:3, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-12-01T13:18:25 IST" name="ForgetpasswordPopup" description="TestCasesID #T.C.1.1.002" finished-at="2020-12-01T13:18:27 IST" duration-ms="2337" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ForgetpasswordPopup -->
-        <test-method signature="SignInButton()[pri:4, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-11-30T17:57:05 IST" name="SignInButton" description="TestCasesID #T.C.1.1.003,TestCasesID #T.C.1.1.005" finished-at="2020-11-30T17:57:10 IST" duration-ms="5840" status="PASS">
+        <test-method signature="SignInButton()[pri:4, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-12-01T13:18:27 IST" name="SignInButton" description="TestCasesID #T.C.1.1.003,TestCasesID #T.C.1.1.005" finished-at="2020-12-01T13:18:29 IST" duration-ms="2533" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SignInButton -->
-        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-11-30T17:57:10 IST" name="CloseBrowser" finished-at="2020-11-30T17:57:17 IST" duration-ms="6440" status="PASS">
+        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:testNG.KatkadaWebPage@22635ba0]" started-at="2020-12-01T13:18:29 IST" name="CloseBrowser" finished-at="2020-12-01T13:18:33 IST" duration-ms="3195" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseBrowser -->

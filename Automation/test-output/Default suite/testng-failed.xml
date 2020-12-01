@@ -7,9 +7,6 @@
         <methods>
           <include name="CloseBrowser"/>
           <include name="LaunchBrowse"/>
-          <include name="ForgetpasswordPopup"/>
-          <include name="SignupPopup"/>
-          <include name="Signin"/>
           <include name="SignInButton"/>
         </methods>
       </class> <!-- testNG.KatkadaWebPage -->
