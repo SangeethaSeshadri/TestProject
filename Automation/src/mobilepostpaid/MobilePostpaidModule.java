@@ -2,6 +2,7 @@ package mobilepostpaid;
 
 import java.util.concurrent.TimeUnit;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -22,7 +23,7 @@ public class MobilePostpaidModule extends BaseClass{
 		Thread.sleep(2000);
 		
 		//click the SIGN IN button
-		driver.findElement(By.linkText("SIGN IN")).click();	
+		driver.findElement(By.linkText("SIGN IN")).click();
     }
 
       //Check SignIn Button

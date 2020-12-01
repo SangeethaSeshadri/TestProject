@@ -4,133 +4,104 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pageObjects.PrepaidPageObject;
 import testNG.BaseClass;
 
 public class MobilePrepaidModule extends BaseClass {
 	
-	        //SignButton on top left(MenuBar)
-			@Test(description = "TestCasesID #T.C.1.1.002",priority = 1)
-			public void Signin() throws InterruptedException 
+	   //SignButton on top left(MenuBar)
+       @Test(description = "TestCasesID #T.C.1.1.002",priority = 1)
+	   public void Signin() throws InterruptedException 
 		  {
 				//pause the execution for 2 seconds
 				Thread.sleep(2000);
 				
+				PageFactory.initElements(driver, PrepaidPageObject.class);
 				//click the SIGN IN button
-				driver.findElement(By.linkText("SIGN IN")).click();
-				
+				PrepaidPageObject.signin.click();			
 		  }
 	
-	       //Check SignIn Button
-	       @Test(description="TestCasesID #T.C.1.1.003,TestCasesID #T.C.1.1.005",priority = 2)
-	       public void SignInButton() throws InterruptedException 
-	    {
-	   
+	   //Check SignIn Button
+	   @Test(description="TestCasesID #T.C.1.1.003,TestCasesID #T.C.1.1.005",priority = 2)
+	   public void SignInButton() throws InterruptedException 
+	    {  
 	      Thread.sleep(2000);
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		  //Click on SignIn Popup
-		  WebElement signIn = driver.findElement(By.linkText("Sign In"));
-		  signIn.click();
-		
-	      //Fill the email field
-		  WebElement email = driver.findElement(By.id("email-form"));
-		  //Fill the password field
-         WebElement password = driver.findElement(By.id("pass-form"));
-         //"SIGN IN" button
-		  WebElement signin = driver.findElement(By.xpath("//*[@id=\"sign_in_button\"]"));
-		
-		  //fill the email field using this validinput(Email)
-		  Thread.sleep(1000);
-         email.sendKeys("sa@gmail.com");
-       
-         //fill the password field using this validinput(password)
-         Thread.sleep(1000);
-         password.sendKeys("shanthi123");
-       
-         //Click on "SIGIN" button
-         Thread.sleep(1000);
-         signin.click();
-     }
-	 
+		  PrepaidPageObject.email.sendKeys("sa@gmail.com"); 
+          PrepaidPageObject.pass.sendKeys("shanthi123");
+          PrepaidPageObject.SignInbutton.click();	 
+        }
+	  
  
 	   //Check (recharge - Prepaid Module) with SignIn
 	   @Test(description="TesctCasesID #T.C.1.2.001",priority = 3)
-	   public void Prepaid() throws InterruptedException {
+	   public void Prepaid() throws InterruptedException 
+	   {
 		 
 		 Thread.sleep(2000);
 		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		 //Click on "Mobile" - present on navigate bar(top left)
-		 WebElement mobile = driver.findElement(By.linkText("MOBILE"));
-		 mobile.click();
+		 PrepaidPageObject.mobile.click();
 		 
 		 String actualtext = driver.findElement(By.id("recharge_form_heading")).getText();
 		 System.out.println(actualtext);
 		 String expectedtext = "Recharge Now";
-		 Assert.assertEquals(actualtext, expectedtext);
-		 
-		 driver.findElement(By.xpath("//label[contains(text(),'Prepaid')]"));
-		 
-	 }
+		 Assert.assertEquals(actualtext, expectedtext);	 
+		
+	   }
 	 
-	   //Check with User Valid inputs
-       @Test(description="TestCasesID #T.C.1.2.002",priority = 4)
-       public void prepaidValidInputs() throws InterruptedException
-     {
-   	     WebElement mobileno = driver.findElement(By.id("mobile_no"));
-		 mobileno.sendKeys("9442513153");
-		 
-		 WebElement operator = driver.findElement(By.id("operator_name"));
-		 operator.click();
-		 Select drpope = new Select(driver.findElement(By.name("operator_name")));
+	  //Check with User Valid inputs
+      @Test(description="TestCasesID #T.C.1.2.002",priority = 4)
+      public void prepaidValidInputs() throws InterruptedException
+       {
+   	     PrepaidPageObject.mobileno.sendKeys("8904321238");
+		  
+		 PrepaidPageObject.operator.click();
+		 Select drpope = new Select(PrepaidPageObject.drpop);
 		 drpope.selectByVisibleText("Idea");
 		 
-		 WebElement region = driver.findElement(By.id("region_name"));
-		 region.click();
-		 Select drpreg = new Select(driver.findElement(By.name("region_name")));
+		 PrepaidPageObject.region.click();
+		 Select drpreg = new Select(PrepaidPageObject.drpre);
 		 drpreg.selectByVisibleText("CHENNAI");
 		 
-	     WebElement amount = driver.findElement(By.id("recharge_amount"));
-		 amount.sendKeys("100");
+	     PrepaidPageObject.amount.sendKeys("100");
 		 
-	 }
+	  }
 	 
-       //Check browse plan link
-	   @Test(description="TestCasesID #T.C.1.2.003",priority = 5)
-	   public void browserplan() throws InterruptedException
+    //Check browse plan link
+	@Test(description="TestCasesID #T.C.1.2.003",priority = 5)
+	public void browserplan() throws InterruptedException
 	 {
 		 
 		 //Click on browserplan Link
 		 Thread.sleep(2000);
-	     WebElement plan = driver.findElement(By.xpath("//a[@id='browse_plan']"));
-		 plan.click();
+	     PrepaidPageObject.plan.click();
 		 
 		 //Click on Plantype dropdown
 		 Thread.sleep(2000);
-		 WebElement plans = driver.findElement(By.id("plan_type"));
-	     plans.click();
+		 PrepaidPageObject.plans.click();
 	     Thread.sleep(1000);
-		 Select drpplan = new Select(driver.findElement(By.xpath("//select[@id='plan_type']")));
+		 Select drpplan = new Select(PrepaidPageObject.drpplans);
 		 drpplan.selectByVisibleText("Special Tariff");
 		
 		 //Close Browserplan popup
 		 Thread.sleep(1000);
-		 WebElement browser = driver.findElement(By.xpath("//body/div[@id='ajax-prepaid-plans']/div[1]/div[1]/div[1]/button[1]"));
-		 browser.click();
+		 PrepaidPageObject.browser.click();
 
-	 }
+	  }
 	 
-	   //Check recharge Button
-	   @Test(description="TestCasesID #T.C.1.2.004",priority = 6)
-	   public void rechargenowButton() throws InterruptedException
+	//Check recharge Button
+	@Test(description="TestCasesID #T.C.1.2.004",priority = 6)
+	public void rechargenowButton() throws InterruptedException
 	 {
 		 //Click on "recharge" button
 		 Thread.sleep(1000);
-		 WebElement recharge = driver.findElement(By.cssSelector("#recharge_submit_button"));
-		 recharge.sendKeys(Keys.ENTER);
+		 PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
 		 
 		 String actualtext = driver.findElement(By.xpath("//h3[contains(text(),'Recharge Amount Information')]")).getText();
          System.out.println(actualtext);
@@ -145,31 +116,24 @@ public class MobilePrepaidModule extends BaseClass {
 	 	 
 		 Thread.sleep(2000);
 		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		 WebElement mobile = driver.findElement(By.linkText("MOBILE"));
-		 mobile.click();
+		 PrepaidPageObject.mobile.click();
 		 
 		 //Check with invalid user details - with signin
 		 //Invalid mobile number, other fields with valid input
 		 
-		 WebElement mobileno = driver.findElement(By.id("mobile_no"));
-		 mobileno.sendKeys("944564217");
+		 PrepaidPageObject.mobileno.sendKeys("944253613");
 		 
-		 WebElement operator = driver.findElement(By.id("operator_name"));
-         operator.click();
-		 Select drpope = new Select(driver.findElement(By.name("operator_name")));
+		 PrepaidPageObject.operator.click();
+		 Select drpope = new Select(PrepaidPageObject.drpop);
 		 drpope.selectByVisibleText("Idea");
 		 
-		 WebElement region = driver.findElement(By.id("region_name"));
-		 region.click();
-		 Select drpreg = new Select(driver.findElement(By.name("region_name")));
+		 PrepaidPageObject.region.click();
+		 Select drpreg = new Select(PrepaidPageObject.drpre);
 		 drpreg.selectByVisibleText("CHENNAI");
 		 
-		 WebElement amount = driver.findElement(By.id("recharge_amount"));
-		 amount.sendKeys("100");
-		 
+		 PrepaidPageObject.amount.sendKeys("200");
 		 Thread.sleep(1000);
-		 WebElement recharge = driver.findElement(By.cssSelector("#recharge_submit_button"));
-		 recharge.sendKeys(Keys.ENTER);
+		 PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
 		 
 		 String alertMessage = driver.switchTo().alert().getText();
 		 System.out.println(alertMessage);
@@ -181,27 +145,26 @@ public class MobilePrepaidModule extends BaseClass {
 		 
 		 //clear the input fields
 		 
-		 mobileno.clear();
+		PrepaidPageObject.mobileno.clear();
+		
+		PrepaidPageObject.operator.click();
+		drpope.selectByVisibleText("-- Select Operator --");
 		 
-		 operator.click();
-		 drpope.selectByVisibleText("-- Select Operator --");
+		PrepaidPageObject.region.click();
+		drpreg.selectByVisibleText("-- Select Region --");
 		 
-		 region.click();
-		 drpreg.selectByVisibleText("-- Select Region --");
-		 
-		 amount.clear();
+		PrepaidPageObject.amount.clear();
 		 
 		 
 	//select operator field has to be empty, other fields with valid input
 		  
-		 mobileno.sendKeys("9445642173");
-		 
-		 region.click();
+		 PrepaidPageObject.mobileno.sendKeys("9442513153");
+		 PrepaidPageObject.region.click();
 		 drpreg.selectByVisibleText("CHENNAI");
 
-		 amount.sendKeys("200");
+		 PrepaidPageObject.amount.sendKeys("300");
 		 
-		 recharge.sendKeys(Keys.ENTER);
+		 PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
 		 
 		 String AlertMessage = driver.switchTo().alert().getText();
 		 System.out.println(AlertMessage);
@@ -213,24 +176,18 @@ public class MobilePrepaidModule extends BaseClass {
 		 
 		 //clean the input fields
 		 
-		 mobileno.clear();
-		  
-		 region.click();
+		 PrepaidPageObject.mobileno.clear();
+		 PrepaidPageObject.region.click();
 		 drpreg.selectByVisibleText("-- Select Region --");
-		 
-		 amount.clear();
-	 
-	 
+		 PrepaidPageObject.amount.clear();
+		
 	 //Select region has to be empty, other field with valid input
 	 
-	    mobileno.sendKeys("9445642664");
-	 
-	    operator.click();
+		PrepaidPageObject.mobileno.sendKeys("9445642664");
+	    PrepaidPageObject.operator.click();
 		drpope.selectByVisibleText("Idea");
-		
-		amount.sendKeys("300");
-		
-		recharge.sendKeys(Keys.ENTER);
+		PrepaidPageObject.amount.sendKeys("400");
+		PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
 		
 		String alertmessage = driver.switchTo().alert().getText();
 		System.out.println(alertmessage);
@@ -241,27 +198,20 @@ public class MobilePrepaidModule extends BaseClass {
 		
 		//clear input fields
 		
-		mobileno.clear();
-		
-		operator.click();
+		PrepaidPageObject.mobileno.clear();
+		PrepaidPageObject.operator.click();
 		drpope.selectByVisibleText("-- Select Operator --");
-		
-		amount.clear();
-		
-		
+		PrepaidPageObject.amount.clear();
+	
 	//invalid amount, other field with valid input
 		
-		mobileno.sendKeys("8014532716");
-		
-		operator.click();
+		PrepaidPageObject.mobileno.sendKeys("9442356723");
+		PrepaidPageObject.operator.click();
 		drpope.selectByVisibleText("Idea");
-		
-		region.click();
+		PrepaidPageObject.region.click();
 		drpreg.selectByVisibleText("CHENNAI");
-		
-		amount.sendKeys("0");
-		
-		recharge.sendKeys(Keys.ENTER);
+		PrepaidPageObject.amount.sendKeys("0");
+		PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
 		
 		String alrtmsg = driver.switchTo().alert().getText();
 		System.out.println(alrtmsg);
@@ -271,17 +221,13 @@ public class MobilePrepaidModule extends BaseClass {
 		driver.switchTo().alert().accept();
 		
 		//clear the input field
+		PrepaidPageObject.mobileno.clear();
+		PrepaidPageObject.operator.click();
+		drpope.selectByVisibleText("-- Select Operator --");
+		PrepaidPageObject.region.click();
+        drpreg.selectByVisibleText("-- Select Region --");
+		PrepaidPageObject.amount.clear();
 		
-		 mobileno.clear();
-		 
-		 operator.click();
-		 drpope.selectByVisibleText("-- Select Operator --");
-		 
-		 region.click();
-		 drpreg.selectByVisibleText("-- Select Region --");
-		 
-		 amount.clear();
-		 
 	 }
 	 
 

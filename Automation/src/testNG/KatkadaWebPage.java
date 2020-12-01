@@ -31,7 +31,6 @@ public class KatkadaWebPage extends BaseClass {
 			   Thread.sleep(2000);
 			   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			   
-			   PageFactory.initElements(driver, SignInPageObjects.class);
 			   SignInPageObjects.signinpopup.click();
 			   SignInPageObjects.name.sendKeys("Sangeetha");
 			   SignInPageObjects.mobile.sendKeys("9442513153");
@@ -53,7 +52,6 @@ public class KatkadaWebPage extends BaseClass {
 			  Thread.sleep(2000);
 			  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			  
-			  PageFactory.initElements(driver, SignInPageObjects.class);
 			  SignInPageObjects.forgetpass.click();
 			  SignInPageObjects.emailid.sendKeys("sangeetha1200@gmail.com");
 			 
@@ -71,7 +69,6 @@ public class KatkadaWebPage extends BaseClass {
 		      Thread.sleep(2000);
 			  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			  
-			  PageFactory.initElements(driver, SignInPageObjects.class);
 			  //Click on SignIn Popup
 			  SignInPageObjects.signIn.click();
 			  //Fill the email field
