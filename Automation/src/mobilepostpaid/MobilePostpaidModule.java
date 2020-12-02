@@ -1,109 +1,82 @@
 package mobilepostpaid;
 
 import java.util.concurrent.TimeUnit;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import pageObjects.PostpaidPageObject;
 import testNG.BaseClass;
 
 public class MobilePostpaidModule extends BaseClass{
 	
-	
 	  //SignButton on top left(MenuBar)
 	  @Test(description = "TestCasesID #T.C.1.1.002",priority = 1)
 	  public void Signin() throws InterruptedException 
-    {
+       {
 		//pause the execution for 2 seconds
 		Thread.sleep(2000);
 		
+		PageFactory.initElements(driver, PostpaidPageObject.class);
 		//click the SIGN IN button
-		driver.findElement(By.linkText("SIGN IN")).click();
-    }
+		PostpaidPageObject.signin.click();
+       }
 
       //Check SignIn Button
       @Test(description="TestCasesID #T.C.1.1.003,TestCasesID #T.C.1.1.005",priority = 2)
       public void SignInButton() throws InterruptedException {
 
-       Thread.sleep(2000);
-       driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-       //Click on SignIn Popup
-       WebElement signIn = driver.findElement(By.linkText("Sign In"));
-       signIn.click();
-
-       //Fill the email field
-       WebElement email = driver.findElement(By.id("email-form"));
-       //Fill the password field
-       WebElement password = driver.findElement(By.id("pass-form"));
-       //"SIGN IN" button
-       WebElement signin = driver.findElement(By.xpath("//*[@id=\"sign_in_button\"]"));
-
-       //fill the email field using this validinput(Email)
-       Thread.sleep(1000);
-       email.sendKeys("sa@gmail.com");
-
-       //fill the password field using this validinput(password)
-       Thread.sleep(1000);
-       password.sendKeys("shanthi123");
-
-       //Click on "SIGIN" button
-       Thread.sleep(1000);
-       signin.click();
+         Thread.sleep(2000);
+         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+         PostpaidPageObject.email.sendKeys("sa@gmail.com");
+         PostpaidPageObject.pass.sendKeys("shanthi123");
+         PostpaidPageObject.SignInbutton.click();
     } 
 
 	
 	  @Test(description="TestCasesID #T.C.1.3.001, #T.C.1.3.002, #T.C.1.3.003",priority = 3)
 	  public void postpaid() throws InterruptedException {
 		
-		  Thread.sleep(2000);
-		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		//Click on "Mobile" - present on navigate bar(top left)
-			WebElement mobiles = driver.findElement(By.linkText("MOBILE"));
-			mobiles.click();
-		
-	    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	  //click postpaid(radio button)
-		WebElement postpaid = driver.findElement(By.xpath("//label[contains(text(),'Postpaid')]"));
-		postpaid.click();
+		  PageFactory.initElements(driver, PostpaidPageObject.class);
+		 Thread.sleep(2000);
+		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		 PostpaidPageObject.mobile.click();
+			
+	     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	     PostpaidPageObject.postpaid.click();
 	
-		String actualtext = driver.findElement(By.id("recharge_form_heading")).getText();
-		System.out.println(actualtext);
-		String expectedtext = "Bill Payment";
-		Assert.assertEquals(actualtext, expectedtext);
+		 String actualtext = driver.findElement(By.id("recharge_form_heading")).getText();
+		 System.out.println(actualtext);
+		 String expectedtext = "Bill Payment";
+		 Assert.assertEquals(actualtext, expectedtext);
 		
 		//Valid inputs for postpaid
 		
-		WebElement mobileno = driver.findElement(By.xpath("//input[@id='mobile_no']"));
-		mobileno.sendKeys("9445642173");
+		 PostpaidPageObject.mobileno.sendKeys("9445637281");
 	
-		WebElement operator = driver.findElement(By.id("operator_name"));
-		operator.click();
-		Select drpope = new Select(driver.findElement(By.name("operator_name")));
-		drpope.selectByVisibleText("Idea");
 		 
-		WebElement region = driver.findElement(By.id("region_name"));
-		region.click();
-		Select drpreg = new Select(driver.findElement(By.name("region_name")));
-		drpreg.selectByVisibleText("CHENNAI");
+		 PostpaidPageObject.operator.click();
+		 Select drpope = new Select(PostpaidPageObject.drpop);
+		 drpope.selectByVisibleText("Idea");
 		 
-	    WebElement amount = driver.findElement(By.id("recharge_amount"));
-		amount.sendKeys("100");
+		
+		 PostpaidPageObject.regio.click();
+		 Select drpre = new Select(PostpaidPageObject.drore);
+		 drpre.selectByVisibleText("TAMIL NADU");
+		 
+		 
+	     PostpaidPageObject.amount.sendKeys("200");
 		
 		//click on Billpayment Button
 		
-		 WebElement paybill = driver.findElement(By.cssSelector("#recharge_submit_button"));
-		 paybill.sendKeys(Keys.ENTER);
+		 PostpaidPageObject.paybill.sendKeys(Keys.ENTER);
 		 
 		 Thread.sleep(2000);
-		 WebElement mobile = driver.findElement(By.linkText("MOBILE"));
-		 mobile.click();
+		 PostpaidPageObject.mobile.click();
 		 
-	}
+      }
  
       //Check with invalid user details - with signin
       @Test(description="TestCasesID #T.C.1.3.004, #T.C.1.3.005, #T.C.1.3.006, #T.C.1.3.007",priority = 4)
@@ -111,61 +84,55 @@ public class MobilePostpaidModule extends BaseClass{
     	  
 	     Thread.sleep(2000);
 	     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	     WebElement postpaid = driver.findElement(By.xpath("//label[contains(text(),'Postpaid')]"));
-	     postpaid.click();
+	     PostpaidPageObject.postpaid.click();
 	
 	//Invalid mobile number, other fields with valid input
 	
-	    WebElement mobileno = driver.findElement(By.id("mobile_no"));
-	    mobileno.sendKeys("944564217");
+	    PostpaidPageObject.mobileno.sendKeys("944325432");
 	 
-	    WebElement operator = driver.findElement(By.id("operator_name"));
-        operator.click();
-	    Select drpope = new Select(driver.findElement(By.name("operator_name")));
+	    PostpaidPageObject.operator.click();
+	    Select drpope = new Select(PostpaidPageObject.drpop);
 	    drpope.selectByVisibleText("Idea");
 	 
-	    WebElement region = driver.findElement(By.id("region_name"));
-	    region.click();
-	    Select drpreg = new Select(driver.findElement(By.name("region_name")));
-	    drpreg.selectByVisibleText("CHENNAI");
+	    PostpaidPageObject.regio.click();
+	    Select drpre = new Select(PostpaidPageObject.drore);
+	    drpre.selectByVisibleText("TAMIL NADU");
 	  
-	    WebElement amount = driver.findElement(By.id("recharge_amount"));
-	    amount.sendKeys("100");
+	    PostpaidPageObject.amount.sendKeys("200");
+	    
+	    PostpaidPageObject.paybill.click();
 	  
-	    WebElement recharge = driver.findElement(By.cssSelector("#recharge_submit_button"));
-	    recharge.sendKeys(Keys.ENTER);
-	 
-	   String alertMessage = driver.switchTo().alert().getText();
-	   System.out.println(alertMessage);
-	   String expectedMessage = "Enter a valid 10 digits mobile number!";
-	   Assert.assertEquals(alertMessage, expectedMessage);
-	   Thread.sleep(2000);
-	   driver.switchTo().alert().accept();
+	    String alertMessage = driver.switchTo().alert().getText();
+	    System.out.println(alertMessage);
+	    String expectedMessage = "Enter a valid 10 digits mobile number!";
+	    Assert.assertEquals(alertMessage, expectedMessage);
+	    Thread.sleep(2000);
+	    driver.switchTo().alert().accept();
 	 
 	 
 	  //clear the input field
 	 
-	   mobileno.clear();
+	   PostpaidPageObject.mobileno.clear();
 	 
-	   operator.click();
+	   PostpaidPageObject.operator.click();
 	   drpope.selectByVisibleText("-- Select Operator --");
 	 
-	   region.click();
-	   drpreg.selectByVisibleText("-- Select Region --");
+	   PostpaidPageObject.regio.click();
+	   drpre.selectByVisibleText("-- Select Region --");
 	 
-	   amount.clear();
+	   PostpaidPageObject.amount.clear();
 	 
 	 
     //select operator field has to be empty, other fields with valid input
 	 
-	   mobileno.sendKeys("9445642173");
+	   PostpaidPageObject.mobileno.sendKeys("9445673821");
 	 
-	   region.click();
-	   drpreg.selectByVisibleText("CHENNAI");
+	   PostpaidPageObject.regio.click();
+	   drpre.selectByVisibleText("TAMIL NADU");
 
-	   amount.sendKeys("200");
+	   PostpaidPageObject.amount.sendKeys("300");
 	 
-	   recharge.sendKeys(Keys.ENTER);
+	   PostpaidPageObject.paybill.sendKeys(Keys.ENTER);
 	 
 	   String AlertMessage = driver.switchTo().alert().getText();
 	   System.out.println(AlertMessage);
@@ -176,23 +143,23 @@ public class MobilePostpaidModule extends BaseClass{
 	 
 	 //clear the input
 	 
-	   mobileno.clear();
+	   PostpaidPageObject.mobileno.clear();
 	 
-	   region.click();
-	   drpreg.selectByVisibleText("-- Select Region --");
+	   PostpaidPageObject.regio.click();
+	   drpre.selectByVisibleText("-- Select Region --");
 	 
-	   amount.clear();
+	   PostpaidPageObject.amount.clear();
 	 
 	//Select region has to be empty, other field with valid input
 	 
-	   mobileno.sendKeys("9445642664");
+	   PostpaidPageObject.mobileno.sendKeys("9445673821");
 	 
-	   operator.click();
+	   PostpaidPageObject.operator.click();
        drpope.selectByVisibleText("Idea");
 		
-	   amount.sendKeys("300");
+	   PostpaidPageObject.amount.sendKeys("200");
 		
-	   recharge.sendKeys(Keys.ENTER);
+	   PostpaidPageObject.paybill.sendKeys(Keys.ENTER);
 		
 	   String alertmessage = driver.switchTo().alert().getText();
 	   System.out.println(alertmessage);
@@ -204,26 +171,26 @@ public class MobilePostpaidModule extends BaseClass{
 		
 	  //clear the input
 		
-	  mobileno.clear();
+	   PostpaidPageObject.mobileno.clear();
 		
-	  operator.click();
-	  drpope.selectByVisibleText("-- Select Operator --");
+	   PostpaidPageObject.operator.click();
+	   drpope.selectByVisibleText("-- Select Operator --");
 		
-	  amount.clear();
+	   PostpaidPageObject.amount.clear();
 		
 	  //invalid amount, other field with valid input
 		
-	  mobileno.sendKeys("8014532716");
+	  PostpaidPageObject.mobileno.sendKeys("9445637281");
 		
-	  operator.click();
+	  PostpaidPageObject.operator.click();
 	  drpope.selectByVisibleText("Idea");
 		
-	  region.click();
-	  drpreg.selectByVisibleText("CHENNAI");
+	  PostpaidPageObject.regio.click();
+	  drpre.selectByVisibleText("TAMIL NADU");
 		
-	  amount.sendKeys("0");
+	  PostpaidPageObject.amount.sendKeys("0");
 		
-	  recharge.sendKeys(Keys.ENTER);
+	  PostpaidPageObject.paybill.click();
 		
 	  String alrtmsg = driver.switchTo().alert().getText();
 	  System.out.println(alrtmsg);
@@ -235,15 +202,15 @@ public class MobilePostpaidModule extends BaseClass{
 		
 	  //clear the input field
 		
-	  mobileno.clear();
+	  PostpaidPageObject.mobileno.clear();
 		 
-	  operator.click();
+	  PostpaidPageObject.operator.click();
 	  drpope.selectByVisibleText("-- Select Operator --");
 		 
-	  region.click();
-	  drpreg.selectByVisibleText("-- Select Region --");
+	  PostpaidPageObject.regio.click();
+	  drpre.selectByVisibleText("-- Select Region --");
 		 
-	  amount.clear();
+	  PostpaidPageObject.amount.clear();
 		 
   }
 

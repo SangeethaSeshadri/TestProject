@@ -57,7 +57,7 @@ public class MobilePrepaidModule extends BaseClass {
 	 
 	  //Check with User Valid inputs
       @Test(description="TestCasesID #T.C.1.2.002",priority = 4)
-      public void prepaidValidInputs() throws InterruptedException
+      public void prepaidValidInputs() 
        {
    	     PrepaidPageObject.mobileno.sendKeys("8904321238");
 		  
