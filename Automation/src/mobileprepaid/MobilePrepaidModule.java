@@ -1,8 +1,6 @@
 package mobileprepaid;
 
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -48,7 +46,7 @@ public class MobilePrepaidModule extends BaseClass {
 		 //Click on "Mobile" - present on navigate bar(top left)
 		 PrepaidPageObject.mobile.click();
 		 
-		 String actualtext = driver.findElement(By.id("recharge_form_heading")).getText();
+		 String actualtext = PrepaidPageObject.rechargenow.getText();
 		 System.out.println(actualtext);
 		 String expectedtext = "Recharge Now";
 		 Assert.assertEquals(actualtext, expectedtext);	 
@@ -103,7 +101,7 @@ public class MobilePrepaidModule extends BaseClass {
 		 Thread.sleep(1000);
 		 PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
 		 
-		 String actualtext = driver.findElement(By.xpath("//h3[contains(text(),'Recharge Amount Information')]")).getText();
+		 String actualtext = PrepaidPageObject.information.getText();
          System.out.println(actualtext);
          String expectedtext ="Recharge Amount Information";
          Assert.assertEquals(actualtext, expectedtext);

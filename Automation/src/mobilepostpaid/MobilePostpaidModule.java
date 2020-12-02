@@ -1,7 +1,6 @@
 package mobilepostpaid;
 
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -36,50 +35,49 @@ public class MobilePostpaidModule extends BaseClass{
     } 
 
 	
-	  @Test(description="TestCasesID #T.C.1.3.001, #T.C.1.3.002, #T.C.1.3.003",priority = 3)
-	  public void postpaid() throws InterruptedException {
-		
-		  PageFactory.initElements(driver, PostpaidPageObject.class);
+	  @Test(description="TestCasesID #T.C.1.3.001",priority = 3)
+	  public void postpaid() throws InterruptedException
+	  {
 		 Thread.sleep(2000);
 		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		 PostpaidPageObject.mobile.click();
+		 PostpaidPageObject.mobiles.click();
 			
-	     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		 Thread.sleep(1000);
+	     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	     PostpaidPageObject.postpaid.click();
 	
-		 String actualtext = driver.findElement(By.id("recharge_form_heading")).getText();
+		 String actualtext = PostpaidPageObject.headline.getText();
 		 System.out.println(actualtext);
 		 String expectedtext = "Bill Payment";
 		 Assert.assertEquals(actualtext, expectedtext);
-		
-		//Valid inputs for postpaid
-		
+	  }
+	  
+	  @Test(description="TestCasesID #T.C.1.3.002, #T.C.1.3.003" ,priority = 4)
+	  public void postpaidvalidInputs() throws InterruptedException 
+	  {
+		 
 		 PostpaidPageObject.mobileno.sendKeys("9445637281");
 	
-		 
 		 PostpaidPageObject.operator.click();
 		 Select drpope = new Select(PostpaidPageObject.drpop);
 		 drpope.selectByVisibleText("Idea");
 		 
-		
 		 PostpaidPageObject.regio.click();
 		 Select drpre = new Select(PostpaidPageObject.drore);
 		 drpre.selectByVisibleText("TAMIL NADU");
 		 
-		 
-	     PostpaidPageObject.amount.sendKeys("200");
+		 PostpaidPageObject.amount.sendKeys("200");
 		
-		//click on Billpayment Button
-		
+		 Thread.sleep(1000);
 		 PostpaidPageObject.paybill.sendKeys(Keys.ENTER);
 		 
 		 Thread.sleep(2000);
-		 PostpaidPageObject.mobile.click();
+		 PostpaidPageObject.mobiles.click();
 		 
       }
  
       //Check with invalid user details - with signin
-      @Test(description="TestCasesID #T.C.1.3.004, #T.C.1.3.005, #T.C.1.3.006, #T.C.1.3.007",priority = 4)
+      @Test(description="TestCasesID #T.C.1.3.004, #T.C.1.3.005, #T.C.1.3.006, #T.C.1.3.007",priority = 5)
       public void postpaidNegativeScenarios() throws InterruptedException {
     	  
 	     Thread.sleep(2000);
@@ -209,7 +207,7 @@ public class MobilePostpaidModule extends BaseClass{
 		 
 	  PostpaidPageObject.regio.click();
 	  drpre.selectByVisibleText("-- Select Region --");
-		 
+	  
 	  PostpaidPageObject.amount.clear();
 		 
   }

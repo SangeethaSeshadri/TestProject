@@ -20,6 +20,9 @@ public class PrepaidPageObject {
 	@FindBy(linkText="MOBILE")
 	public static WebElement mobile;
 	
+	@FindBy(id="recharge_form_heading")
+	public static WebElement rechargenow;
+	
 	@FindBy(id="mobile_no")
 	public static WebElement mobileno;
 	
@@ -51,6 +54,9 @@ public class PrepaidPageObject {
 	public static WebElement browser;
 	
 	@FindBy(css="#recharge_submit_button")
-	public static WebElement rechargebutton;	
+	public static WebElement rechargebutton;
+	
+	@FindBy(xpath="//h3[contains(text(),'Recharge Amount Information')]")
+	public static WebElement information;
 	
 }

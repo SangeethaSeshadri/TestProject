@@ -2,7 +2,6 @@ package testNG;
 
 
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -38,7 +37,7 @@ public class KatkadaWebPage extends BaseClass {
 			   SignInPageObjects.password.sendKeys("sangeetha");
 			   SignInPageObjects.retypepass.sendKeys("sangeetha");
 			   
-			   String actualtext= driver.findElement(By.xpath("//button[@id='sign_up_button']")).getText();
+			   String actualtext= SignInPageObjects.signup.getText();
 			   System.out.println(actualtext);
 			   String expectedtext = "Sign Up";
 			   Assert.assertEquals(actualtext, expectedtext);
@@ -55,7 +54,7 @@ public class KatkadaWebPage extends BaseClass {
 			  SignInPageObjects.forgetpass.click();
 			  SignInPageObjects.emailid.sendKeys("sangeetha1200@gmail.com");
 			 
-			  String actualtext = driver.findElement(By.xpath("//button[@id='reset_pwd_button']")).getText();
+			  String actualtext = SignInPageObjects.forgetpassbutton.getText();
 			  System.out.println(actualtext);
 			  String expectedtext = "Reset Password";
 			  Assert.assertEquals(actualtext, expectedtext);

@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PostpaidPageObject {
+public class LandlinePageObject {
 	
 	@FindBy(linkText="SIGN IN")
 	public static WebElement signin;
@@ -13,33 +13,30 @@ public class PostpaidPageObject {
 	
 	@FindBy(id="pass-form")
 	public static WebElement pass;
-
+	
 	@FindBy(id="sign_in_button")
-	public static WebElement SignInbutton;
-	
-	@FindBy(linkText="MOBILE")
-	public static WebElement mobiles;
-	
-	@FindBy(xpath="//label[contains(text(),'Postpaid')]")
-	public static WebElement postpaid;
-	
-	@FindBy(id="recharge_form_heading")
-	public static WebElement headline;
+	public static WebElement signinbutton;
 
-	@FindBy(id="mobile_no")
-	public static WebElement mobileno;
+	@FindBy(className="dropdown-toggle")
+	public static WebElement billpayment;
+	
+	@FindBy(linkText="LANDLINE")
+	public static WebElement landline;
+	
+	@FindBy(xpath="//p[@id='recharge_form_heading']")
+	public static WebElement heading;
 	
 	@FindBy(id="operator_name")
 	public static WebElement operator;
 	
 	@FindBy(name="operator_name")
-	public static WebElement drpop;
+	public static WebElement drope;
 	
-	@FindBy(id="region_name")
-	public static WebElement regio;
+	@FindBy(id="std_code")
+	public static WebElement stdcode;
 	
-	@FindBy(name="region_name")
-	public static WebElement drore;
+	@FindBy(id="account_no")
+	public static WebElement landlineno;
 	
 	@FindBy(id="recharge_amount")
 	public static WebElement amount;

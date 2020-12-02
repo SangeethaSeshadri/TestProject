@@ -27,8 +27,14 @@ public class SignInPageObjects {
 	@FindBy(id="confirm-pass")
 	public static WebElement retypepass;
 	
+	@FindBy(id="sign_up_button")
+	public static WebElement signup;
+	
 	@FindBy(xpath="//a[contains(text(),'Forgot Password?')]")
 	public static WebElement forgetpass;
+	
+	@FindBy(id="reset_pwd_button")
+	public static WebElement forgetpassbutton;
 	
 	@FindBy(id="email-form1")
 	public static WebElement emailid;
@@ -43,11 +49,6 @@ public class SignInPageObjects {
 	public static WebElement pass;
 
 	@FindBy(id="sign_in_button")
-	public static WebElement SignInbutton;
-	
-	
-	
-	
-	
+	public static WebElement SignInbutton;	
 	
 }

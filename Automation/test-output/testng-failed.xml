@@ -5,7 +5,7 @@
     <classes>
       <class name="mobilepostpaid.MobilePostpaidModule">
         <methods>
-          <include name="postpaidNegativeScenarios"/>
+          <include name="postpaid"/>
           <include name="CloseBrowser"/>
           <include name="LaunchBrowse"/>
         </methods>
