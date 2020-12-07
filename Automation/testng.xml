@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Test">
-    <classes>
+  <test name="Katkadawebpage">
+   <classes>
       <class name="testNG.KatkadaWebPage"/>
+      </classes>
+      </test> <!-- Test -->
+      
+      <test name="prepaid">
+   <classes>
       <class name="mobileprepaid.MobilePrepaidModule"/>
+       </classes>
+      </test> <!-- Test -->
+      
+      <test name="postpaid">
+   <classes>
       <class name="mobilepostpaid.MobilePostpaidModule"/>
+       </classes>
+      </test> <!-- Test -->
+      
+   <test name="Landline">
+   <classes>
       <class name="billpaymentlandline.BillpaymentLandlineModule"/>
-    </classes>
-  </test> <!-- Test -->
+         </classes>
+      </test> <!-- Test -->
 </suite> <!-- Suite -->
 
 

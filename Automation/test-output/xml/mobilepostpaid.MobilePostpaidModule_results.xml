@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test three"
+           tests="6"
+           failures="1"
+           errors="0"
+           skipped="5"
+           time="14.790">
+  <properties />
+            <testcase name="LaunchBrowse" time="14.790" classname="mobilepostpaid.MobilePostpaidModule">
+                <failure type="org.openqa.selenium.SessionNotCreatedException"
+                  message="session not created
+from chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;SANGEETHAS&apos;, ip: &apos;192.168.0.104&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;13.0.1&apos;
+Driver info: driver.version: ChromeDriver
+remote stacktrace: Backtrace:
+	Ordinal0 [0x009CECE3+3337443]
+	Ordinal0 [0x008AF041+2158657]
+	Ordinal0 [0x00736E50+618064]
+	Ordinal0 [0x0072D114+577812]
+	Ordinal0 [0x0072D7DB+579547]
+	Ordinal0 [0x0072EA45+584261]
+	Ordinal0 [0x00729A71+563825]
+	Ordinal0 [0x00737FD0+622544]
+	Ordinal0 [0x006D6B2D+224045]
+	Ordinal0 [0x006D5BFC+220156]
+	Ordinal0 [0x006D181B+202779]
+	Ordinal0 [0x006B3D74+81268]
+	Ordinal0 [0x006B4D6E+85358]
+	Ordinal0 [0x006B4CF9+85241]
+	Ordinal0 [0x008C6F2C+2256684]
+	GetHandleVerifier [0x00B52FAC+1478332]
+	GetHandleVerifier [0x00B52AFD+1477133]
+	GetHandleVerifier [0x00B5AAD8+1509864]
+	GetHandleVerifier [0x00B5369E+1480110]
+	Ordinal0 [0x008BD6BD+2217661]
+	Ordinal0 [0x008C89AB+2263467]
+	Ordinal0 [0x008C8AEF+2263791]
+	Ordinal0 [0x008DD363+2347875]
+	BaseThreadInitThunk [0x75E4FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x76F975F4+228]
+	RtlGetAppContainerNamedObjectPath [0x76F975C4+180]
+"
+              >
+<![CDATA[org.openqa.selenium.SessionNotCreatedException: session not created
+from chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'SANGEETHAS', ip: '192.168.0.104', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '13.0.1'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: Backtrace:
+	Ordinal0 [0x009CECE3+3337443]
+	Ordinal0 [0x008AF041+2158657]
+	Ordinal0 [0x00736E50+618064]
+	Ordinal0 [0x0072D114+577812]
+	Ordinal0 [0x0072D7DB+579547]
+	Ordinal0 [0x0072EA45+584261]
+	Ordinal0 [0x00729A71+563825]
+	Ordinal0 [0x00737FD0+622544]
+	Ordinal0 [0x006D6B2D+224045]
+	Ordinal0 [0x006D5BFC+220156]
+	Ordinal0 [0x006D181B+202779]
+	Ordinal0 [0x006B3D74+81268]
+	Ordinal0 [0x006B4D6E+85358]
+	Ordinal0 [0x006B4CF9+85241]
+	Ordinal0 [0x008C6F2C+2256684]
+	GetHandleVerifier [0x00B52FAC+1478332]
+	GetHandleVerifier [0x00B52AFD+1477133]
+	GetHandleVerifier [0x00B5AAD8+1509864]
+	GetHandleVerifier [0x00B5369E+1480110]
+	Ordinal0 [0x008BD6BD+2217661]
+	Ordinal0 [0x008C89AB+2263467]
+	Ordinal0 [0x008C8AEF+2263791]
+	Ordinal0 [0x008DD363+2347875]
+	BaseThreadInitThunk [0x75E4FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x76F975F4+228]
+	RtlGetAppContainerNamedObjectPath [0x76F975C4+180]
+
+  java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+  java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+  java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+  java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+  java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+  org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+  org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+  org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
+  java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+  java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+  java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
+  java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
+  java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
+  java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+  java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+  java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+  java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)
+  org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+  org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
+  org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+  org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+  org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+  org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+  org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+  org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
+  org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
+  testNG.BaseClass.LaunchBrowse(BaseClass.java:33)
+  java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base/java.lang.reflect.Method.invoke(Method.java:567)
+  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+  org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
+  org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
+  org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
+  org.testng.TestRunner.invokeTestConfigurations(TestRunner.java:617)
+  org.testng.TestRunner.beforeRun(TestRunner.java:607)
+  org.testng.TestRunner.run(TestRunner.java:578)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+  org.testng.SuiteRunner.run(SuiteRunner.java:286)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+  org.testng.TestNG.runSuites(TestNG.java:1069)
+  org.testng.TestNG.run(TestNG.java:1037)
+  org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+  org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+  org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+      </failure>
+
+          </testcase>
+  
+            <testcase name="postpaid" time="0.0" classname="mobilepostpaid.MobilePostpaidModule">
+          <skipped />
+    </testcase>
+            <testcase name="postpaidNegativeScenarios" time="0.0" classname="mobilepostpaid.MobilePostpaidModule">
+          <skipped />
+    </testcase>
+            <testcase name="Signin" time="0.0" classname="mobilepostpaid.MobilePostpaidModule">
+          <skipped />
+    </testcase>
+            <testcase name="postpaidvalidInputs" time="0.0" classname="mobilepostpaid.MobilePostpaidModule">
+          <skipped />
+    </testcase>
+            <testcase name="SignInButton" time="0.0" classname="mobilepostpaid.MobilePostpaidModule">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

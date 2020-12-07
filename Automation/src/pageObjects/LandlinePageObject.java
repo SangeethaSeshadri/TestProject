@@ -44,4 +44,11 @@ public class LandlinePageObject {
 	@FindBy(css="#recharge_submit_button")
 	public static WebElement paybill;
 	
+	@FindBy(css="body.cbp-spmenu-push.page-loaded:nth-child(2) header.header:nth-child(4) nav.navbar.navbar-default.navbar-fixed-top:nth-child(1) div.container-fluid div.collapse.navbar-collapse div.dropdown a:nth-child(1) > img.img-responsive.usericonimg")
+	public static WebElement image;
+	
+	@FindBy(partialLinkText = "Logo")
+	public static WebElement logout;
+	
+	
 }

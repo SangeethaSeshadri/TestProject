@@ -1,24 +1,46 @@
 package testNG;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeTest;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import config.PropertiesFile;
+
 
 public class BaseClass {
 	
 	public WebDriver driver;
 	public static String browserName = null;
-	 
+	public static ExtentReports extentReport;
+	public static ExtentHtmlReporter htmlReporter;
+	public static ExtentTest testCase;
+
+	
 	@BeforeTest
 	public void LaunchBrowse() 
 	{
-		PropertiesFile.getProperties();
 		
+		PropertiesFile.getProperties();
+		extentReport =  new ExtentReports();
+	    htmlReporter = new ExtentHtmlReporter("ExtentReport.html");
+		extentReport.attachReporter(htmlReporter);
+		
+		extentReport.setSystemInfo("OS","Windows10");
+		extentReport.setSystemInfo("Hostname", "Test");
+		extentReport.setSystemInfo("Environment", "QA");
+		extentReport.setSystemInfo("User Name", "Sangeetha");
+		
+		
+		htmlReporter.config().setDocumentTitle("Extent report");
+		htmlReporter.config().setReportName("Final Report");
+        
 		
 		if(browserName.equals("chrome"))
 		{
@@ -45,12 +67,14 @@ public class BaseClass {
 		  driver.get("https://katkada.com/");
 	}
 	
-	 @AfterTest
+	 @AfterSuite
 	 public void CloseBrowser() throws InterruptedException {
 		 
-		Thread.sleep(2000);
-		driver.quit();
-		PropertiesFile.setProperties();
+		
+		extentReport.flush();
+		
+		//PropertiesFile.setProperties();
+		
 		 
 	 }
 

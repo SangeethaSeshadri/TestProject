@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Katkadawebpage(failed)">
     <classes>
-      <class name="mobilepostpaid.MobilePostpaidModule">
-        <methods>
-          <include name="postpaid"/>
-          <include name="postpaidNegativeScenarios"/>
-          <include name="CloseBrowser"/>
-          <include name="SignInButton"/>
-          <include name="LaunchBrowse"/>
-          <include name="Signin"/>
-        </methods>
-      </class> <!-- mobilepostpaid.MobilePostpaidModule -->
       <class name="mobileprepaid.MobilePrepaidModule">
         <methods>
           <include name="Prepaid"/>
@@ -37,6 +27,17 @@
           <include name="SignInButton"/>
         </methods>
       </class> <!-- billpaymentlandline.BillpaymentLandlineModule -->
+      <class name="mobilepostpaid.MobilePostpaidModule">
+        <methods>
+          <include name="postpaid"/>
+          <include name="postpaidNegativeScenarios"/>
+          <include name="postpaidvalidInputs"/>
+          <include name="CloseBrowser"/>
+          <include name="SignInButton"/>
+          <include name="LaunchBrowse"/>
+          <include name="Signin"/>
+        </methods>
+      </class> <!-- mobilepostpaid.MobilePostpaidModule -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Katkadawebpage(failed) -->
 </suite> <!-- Failed suite [Suite] -->

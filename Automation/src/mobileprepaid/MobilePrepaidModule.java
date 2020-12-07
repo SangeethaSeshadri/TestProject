@@ -1,38 +1,46 @@
 package mobileprepaid;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
+
 import pageObjects.PrepaidPageObject;
 import testNG.BaseClass;
 
 public class MobilePrepaidModule extends BaseClass {
 	
-	   //SignButton on top left(MenuBar)
+	   
        @Test(description = "TestCasesID #T.C.1.1.002",priority = 1)
 	   public void Signin() throws InterruptedException 
 		  {
-				//pause the execution for 2 seconds
+    	       
+    	        testCase = extentReport.createTest("SignIn for Prepaid Module");
 				Thread.sleep(2000);
-				
 				PageFactory.initElements(driver, PrepaidPageObject.class);
-				//click the SIGN IN button
-				PrepaidPageObject.signin.click();			
+				PrepaidPageObject.signin.click();
+				testCase.log(Status.INFO, "Login Katkada Webpage");
 		  }
 	
-	   //Check SignIn Button
+	   
 	   @Test(description="TestCasesID #T.C.1.1.003,TestCasesID #T.C.1.1.005",priority = 2)
 	   public void SignInButton() throws InterruptedException 
 	    {  
+		  testCase = extentReport.createTest("SignInButton");
 	      Thread.sleep(2000);
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  PrepaidPageObject.email.sendKeys("sa@gmail.com"); 
+		  testCase.log(Status.INFO, "Valid Email");
           PrepaidPageObject.pass.sendKeys("shanthi123");
-          PrepaidPageObject.SignInbutton.click();	 
+          testCase.log(Status.INFO, "Valid Password");
+          PrepaidPageObject.SignInbutton.click();
+          testCase.log(Status.INFO, "Checked the SignIn Button");
+          
         }
 	  
  
@@ -40,16 +48,23 @@ public class MobilePrepaidModule extends BaseClass {
 	   @Test(description="TesctCasesID #T.C.1.2.001",priority = 3)
 	   public void Prepaid() throws InterruptedException 
 	   {
-		 
+		 testCase = extentReport.createTest("Prepaid Module");
 		 Thread.sleep(2000);
 		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		 //Click on "Mobile" - present on navigate bar(top left)
 		 PrepaidPageObject.mobile.click();
+		 testCase.log(Status.INFO, "Checked Prepaid Module");
 		 
 		 String actualtext = PrepaidPageObject.rechargenow.getText();
 		 System.out.println(actualtext);
 		 String expectedtext = "Recharge Now";
-		 Assert.assertEquals(actualtext, expectedtext);	 
+		 Assert.assertEquals(actualtext, expectedtext);	
+		 if(actualtext.equals(expectedtext)) {
+			  testCase.log(Status.PASS, "Actual text and Expected text are equal");
+		  }else {
+			  testCase.log(Status.FAIL, "Actual text and Expected text are not equal");
+		  }
+		 
 		
 	   }
 	 
@@ -57,17 +72,23 @@ public class MobilePrepaidModule extends BaseClass {
       @Test(description="TestCasesID #T.C.1.2.002",priority = 4)
       public void prepaidValidInputs() 
        {
+    	 testCase = extentReport.createTest("Prepaid Positive Scenarios");
+    	 testCase.log(Status.INFO, "Checked with Vaild Inputs");
    	     PrepaidPageObject.mobileno.sendKeys("8904321238");
+   	     testCase.log(Status.INFO, "Valid Mobile Number");
 		  
 		 PrepaidPageObject.operator.click();
 		 Select drpope = new Select(PrepaidPageObject.drpop);
 		 drpope.selectByVisibleText("Idea");
+		 testCase.log(Status.INFO, "Selected the Operator");
 		 
 		 PrepaidPageObject.region.click();
 		 Select drpreg = new Select(PrepaidPageObject.drpre);
 		 drpreg.selectByVisibleText("CHENNAI");
+		 testCase.log(Status.INFO, "Selected the Region");
 		 
 	     PrepaidPageObject.amount.sendKeys("100");
+	     testCase.log(Status.INFO, "Valid Amount");
 		 
 	  }
 	 
@@ -75,21 +96,27 @@ public class MobilePrepaidModule extends BaseClass {
 	@Test(description="TestCasesID #T.C.1.2.003",priority = 5)
 	public void browserplan() throws InterruptedException
 	 {
-		 
+		 testCase = extentReport.createTest("BrowserPlan");
 		 //Click on browserplan Link
 		 Thread.sleep(2000);
 	     PrepaidPageObject.plan.click();
+	     testCase.log(Status.INFO, "Checked the BrowserPlanLink");
 		 
 		 //Click on Plantype dropdown
 		 Thread.sleep(2000);
 		 PrepaidPageObject.plans.click();
+		 testCase.log(Status.INFO, "Checked the Plans");
 	     Thread.sleep(1000);
 		 Select drpplan = new Select(PrepaidPageObject.drpplans);
 		 drpplan.selectByVisibleText("Special Tariff");
+		 testCase.log(Status.INFO,"Selected the Plan");
+		 
 		
 		 //Close Browserplan popup
 		 Thread.sleep(1000);
 		 PrepaidPageObject.browser.click();
+		 testCase.log(Status.INFO, "Closed the Browserplan");
+		 
 
 	  }
 	 
@@ -97,21 +124,29 @@ public class MobilePrepaidModule extends BaseClass {
 	@Test(description="TestCasesID #T.C.1.2.004",priority = 6)
 	public void rechargenowButton() throws InterruptedException
 	 {
+		 testCase = extentReport.createTest("RechargeNow");
 		 //Click on "recharge" button
 		 Thread.sleep(1000);
 		 PrepaidPageObject.rechargebutton.sendKeys(Keys.ENTER);
+		 testCase.log(Status.INFO, "Checked RechargeNow button");
 		 
 		 String actualtext = PrepaidPageObject.information.getText();
          System.out.println(actualtext);
          String expectedtext ="Recharge Amount Information";
          Assert.assertEquals(actualtext, expectedtext);
+         if(actualtext.equals(expectedtext)) {
+			  testCase.log(Status.PASS, "Actual text and Expected text are equal");
+		  }else {
+			  testCase.log(Status.FAIL, "Actual text and Expected text are not equal");
+		  }
 	  }
 	 
 	 
 	  //Negative Scenarios for prepaid 
 	  @Test(description="TestCasesID #T.C.1.2.005, #T.C.1.2.006, #T.C.1.2.007, #T.C.1.2.008",priority = 7)
-	  public void PrepaidNegativeScenarios() throws InterruptedException {
-	 	 
+	  public void PrepaidNegativeScenarios() throws InterruptedException
+	  {
+		 testCase = extentReport.createTest("Prepaid Negative Scenarios");
 		 Thread.sleep(2000);
 		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		 PrepaidPageObject.mobile.click();
@@ -120,6 +155,7 @@ public class MobilePrepaidModule extends BaseClass {
 		 //Invalid mobile number, other fields with valid input
 		 
 		 PrepaidPageObject.mobileno.sendKeys("944253613");
+		 testCase.log(Status.INFO, "Invalid Mobile Number Other field with Valid inputs");
 		 
 		 PrepaidPageObject.operator.click();
 		 Select drpope = new Select(PrepaidPageObject.drpop);
@@ -155,7 +191,7 @@ public class MobilePrepaidModule extends BaseClass {
 		 
 		 
 	//select operator field has to be empty, other fields with valid input
-		  
+		 testCase.log(Status.INFO, "Select Operator field is empty, other fields with valid input"); 
 		 PrepaidPageObject.mobileno.sendKeys("9442513153");
 		 PrepaidPageObject.region.click();
 		 drpreg.selectByVisibleText("CHENNAI");
@@ -180,7 +216,7 @@ public class MobilePrepaidModule extends BaseClass {
 		 PrepaidPageObject.amount.clear();
 		
 	 //Select region has to be empty, other field with valid input
-	 
+	    testCase.log(Status.INFO, "Select Region field is empty, other field with valid inputs ");
 		PrepaidPageObject.mobileno.sendKeys("9445642664");
 	    PrepaidPageObject.operator.click();
 		drpope.selectByVisibleText("Idea");
@@ -202,7 +238,7 @@ public class MobilePrepaidModule extends BaseClass {
 		PrepaidPageObject.amount.clear();
 	
 	//invalid amount, other field with valid input
-		
+		testCase.log(Status.INFO, "Invalid amount,other fields with valid inputs");
 		PrepaidPageObject.mobileno.sendKeys("9442356723");
 		PrepaidPageObject.operator.click();
 		drpope.selectByVisibleText("Idea");
@@ -225,9 +261,22 @@ public class MobilePrepaidModule extends BaseClass {
 		PrepaidPageObject.region.click();
         drpreg.selectByVisibleText("-- Select Region --");
 		PrepaidPageObject.amount.clear();
-		
 	 }
 	 
 
+	  @Test(description = "TestCasesID #T.C.1.1.006",priority = 8)
+		 public void image() throws InterruptedException {
+			 Thread.sleep(2000);
+			   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			   PrepaidPageObject.image.click();
+			  
+			  PrepaidPageObject.logout.click();
+			  String alrtmsg = driver.switchTo().alert().getText();
+			  System.out.println(alrtmsg);
+			  String expectmessage = "Are you sure want to Logout Now?";
+			  Assert.assertEquals(alrtmsg, expectmessage);
+			  Thread.sleep(1000);
+			  driver.switchTo().alert().accept();
+	  }
 
 }

@@ -1,6 +1,5 @@
-/pageObjects/
-/mobilepostpaid/
-/config/
-/mobileprepaid/
-/billpaymentlandline/
 /testNG/
+/mobileprepaid/
+/mobilepostpaid/
+/billpaymentlandline/
+/pageObjects/

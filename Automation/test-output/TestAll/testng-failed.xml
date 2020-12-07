@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestAll]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="mobileprepaid.MobilePrepaidModule">
+        <methods>
+          <include name="Prepaid"/>
+          <include name="CloseBrowser"/>
+          <include name="PrepaidNegativeScenarios"/>
+          <include name="browserplan"/>
+          <include name="rechargenowButton"/>
+          <include name="LaunchBrowse"/>
+          <include name="prepaidValidInputs"/>
+        </methods>
+      </class> <!-- mobileprepaid.MobilePrepaidModule -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [TestAll] -->
