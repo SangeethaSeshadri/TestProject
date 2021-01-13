@@ -12,7 +12,7 @@ public class PropertiesFile {
 	
 	public static void main(String[] args) {
 		getProperties();
-		//setProperties();
+		
 		
 	}
 
@@ -31,18 +31,5 @@ public class PropertiesFile {
 		}
 		
 	}
-	
-	/*public static void setProperties()
-	{
-		try {
-			OutputStream output = new FileOutputStream("E:\\Users\\Sangeetha S\\git\\repository\\Automation\\src\\config\\config.properties");
-			prop.setProperty("result", "pass");
-			prop.store(output, null);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-			System.out.println(e.getCause());
-			e.printStackTrace();
-		}
-		
-	}*/
+
 }

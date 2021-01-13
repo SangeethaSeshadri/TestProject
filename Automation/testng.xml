@@ -4,23 +4,11 @@
   <test name="Katkadawebpage">
    <classes>
       <class name="testNG.KatkadaWebPage"/>
-      </classes>
-      </test> <!-- Test -->
-      
-      <test name="prepaid">
-   <classes>
+   
       <class name="mobileprepaid.MobilePrepaidModule"/>
-       </classes>
-      </test> <!-- Test -->
-      
-      <test name="postpaid">
-   <classes>
+       
       <class name="mobilepostpaid.MobilePostpaidModule"/>
-       </classes>
-      </test> <!-- Test -->
       
-   <test name="Landline">
-   <classes>
       <class name="billpaymentlandline.BillpaymentLandlineModule"/>
          </classes>
       </test> <!-- Test -->
